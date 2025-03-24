@@ -43,11 +43,9 @@ print(adwentures_of_tom_sawer)
 # task 04
 """ Виведіть, скількі разів у тексті зустрічається літера "h"
 """
-count = 0
-for h_letter in adwentures_of_tom_sawer:
-    if h_letter == "h":
-        count += 1
-print(f"Літера \"h\" у тексті з\'являється {count} разів")
+h_amount = adwentures_of_tom_sawer.count("h")
+print(h_amount)
+
 #
 # task 05
 """ Виведіть, скільки слів у тексті починається з Великої літери?
@@ -55,7 +53,7 @@ print(f"Літера \"h\" у тексті з\'являється {count} раз
 count = 0
 find_with_capital_letter = adwentures_of_tom_sawer.split()
 for capital_letter in find_with_capital_letter:
-    if capital_letter[0].isupper():
+    if capital_letter[0].istitle():
         count += 1
 print(f"У тексті {count} слів починається з Великої літери")
 
@@ -64,18 +62,13 @@ print(f"У тексті {count} слів починається з Велико�
 """ Виведіть позицію, на якій слово Tom зустрічається вдруге
 """
 first_Tom_position = adwentures_of_tom_sawer.find("Tom")
-if first_Tom_position != -1:
-    second_Tom_position = adwentures_of_tom_sawer.find("Tom", first_Tom_position + 1)
-    if second_Tom_position != -1:
-        print(f"Слово \"Tom\" вдруге pнайдено на позиції {second_Tom_position}.")
+second_Tom_position = adwentures_of_tom_sawer.find("Tom", first_Tom_position + 1)
+print(f"Слово \"Tom\" вдруге pнайдено на позиції {second_Tom_position}.")
 
 # task 07
 """ Розділіть змінну adwentures_of_tom_sawer по кінцю речення.
 Збережіть результат у змінній adwentures_of_tom_sawer_fourth_sentence
-import re
-adwentures_of_tom_sawer_fourth_sentence = re.split(r'(?<=\w[.!?])\s+', adwentures_of_tom_sawer)
-
-# """
+"""
 adwentures_of_tom_sawer_fourth_sentence = adwentures_of_tom_sawer.split('. ')
 print(adwentures_of_tom_sawer_fourth_sentence)
 
@@ -95,10 +88,6 @@ adwentures_of_tom_sawer_sentences = adwentures_of_tom_sawer.split(". ")
 for some_sentences in adwentures_of_tom_sawer_sentences:
     if some_sentences.startswith("By the time"):
         print("В тексті є речення яке починається з 'By the time'")
-        found = True
-        break
-if not found:
-    print("В тексті немає речення, яке починається з 'By the time'")
 
 # task 10
 """ Виведіть кількість слів останнього речення з adwentures_of_tom_sawer_sentences.
