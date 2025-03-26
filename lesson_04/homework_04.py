@@ -72,6 +72,7 @@ print(f"Слово \"Tom\" вдруге pнайдено на позиції {sec
 adwentures_of_tom_sawer_fourth_sentence = adwentures_of_tom_sawer.split('. ')
 print(adwentures_of_tom_sawer_fourth_sentence)
 
+
 # task 08
 """ Виведіть четверте речення з adwentures_of_tom_sawer_sentences.
 Перетворіть рядок у нижній регістр.
