@@ -15,7 +15,7 @@ people_records = [
   ('Ava', 'White', 42, 'Journalist', 'San Diego'),
   ('Ethan', 'Anderson', 36, 'Product Manager', 'Phoenix')
 ]
-#1
+# #1
 new_people_record = [('Din', 'Wilson', 72, 'Сompletist', 'London')]
 people_records.insert(0, new_people_record)
 print(people_records)
@@ -28,9 +28,25 @@ print(people_records)
 indices_to_check = [6, 10, 13]
 age_list = []
 
-for index in indices_to_check:
-    if index < len(people_records):
-        record = people_records[index]
-        if len(record) > 2 and record[2] >= 30:
-            age_list.append(record)
-print(f"Умові відповідає: {age_list}")
+for index, record in enumerate(people_records):
+    if index in indices_to_check:
+        age_list.append(record[2] >= 30)
+print(all(age_list))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
