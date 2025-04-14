@@ -30,13 +30,6 @@ class MyTestCase(unittest.TestCase):
         for a, b in invalid_inputs:
             self.assertRaises(TypeError, calculates_sum_of_numbers, a, b, msg="This is not TypeError")
 
-    # def test_failed_with_ValueError(self) -> None:
-    #     invalid_inputs = [
-    #         ()
-    #     ]
-    #     for a, b in invalid_inputs:
-    #         if not a or not b:
-    #             self.assertRaises(ValueError, calculates_sum_of_numbers, a, b, msg="This is not ValueError")
     def test_failed_with_AssertionError(self) -> None:
         """
         Tests that the function raises an AssertionError when one or both arguments are negative.

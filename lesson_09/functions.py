@@ -23,7 +23,7 @@ def longest_word_in_the_list(row: str) -> str:
     :param row: str
     :return: str
     """
-    words = row.split()  # Розбиваємо речення на список слів
+    words = row.split()
     longest = ""
     for word in words:
         if len(word) > len(longest):
