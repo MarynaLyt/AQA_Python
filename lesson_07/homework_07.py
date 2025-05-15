@@ -187,18 +187,30 @@ rolling in wealth."""
 """
 
 
-def adwentures_of_tom_sawer_fourth_sentence() -> list[str]:
+# def adwentures_of_tom_sawer_fourth_sentence() -> list[str]:
+#     """
+#     The function splits the variable adwentures_of_tom_sawer by the end of a sentence and stores the result in the variable adwentures_of_tom_sawer_fourth_sentence.
+#     :return: str
+#     """
+#     return adwentures_of_tom_sawer.split('. ')
+#
+#
+# result = adwentures_of_tom_sawer_fourth_sentence()
+# print(result)
+
+# UPDATED:
+def adwentures_of_tom_sawer_fourth_sentence(text: str) -> list[str]:
     """
-    The function splits the variable adwentures_of_tom_sawer by the end of a sentence and stores the result in the variable adwentures_of_tom_sawer_fourth_sentence.
-    :return: str
+    The function splits the input text by the end of a sentence.
+    :param text: Input string
+    :return: List of sentences
     """
-    return adwentures_of_tom_sawer.split('. ')
+    return text.split('. ')
 
 
-result = adwentures_of_tom_sawer_fourth_sentence()
+result = adwentures_of_tom_sawer_fourth_sentence(adwentures_of_tom_sawer)
 print(result)
 
-#
 # task 08
 """ Виведіть четверте речення з adwentures_of_tom_sawer_sentences.
 Перетворіть рядок у нижній регістр.
