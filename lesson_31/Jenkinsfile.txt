@@ -1,0 +1,38 @@
+pipeline {
+    agent any
+
+    environment {
+        VENV_PATH = "venv"
+    }
+
+    stages {
+        stage('Install Dependencies') {
+            steps {
+                sh 'python3 -m venv ${VENV_PATH}'
+                sh './${VENV_PATH}/bin/pip install -r lesson_31/requirements.txt'
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                sh './${VENV_PATH}/bin/pytest lesson_31/test_app.py --alluredir=allure-results'
+            }
+        }
+
+        stage('Publish Test Report') {
+            steps {
+                sh 'allure generate --single-file allure-results -o allure-report --clean'
+            }
+        }
+    }
+
+    post {
+        always {
+            emailext (
+                to: 'anastasiyakiyasha@gmail.com',
+                subject: "Build #${BUILD_NUMBER} - ${currentBuild.currentResult}",
+                body: "Build finished with status: ${currentBuild.currentResult}"
+            )
+        }
+    }
+}
