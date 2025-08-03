@@ -3,11 +3,9 @@ from flask_jwt_extended import JWTManager, jwt_required, create_access_token
 
 app = Flask(__name__)
 
-# Конфігурація для JWT
-app.config['JWT_SECRET_KEY'] = 'super-secret'  # Змініть на свій секретний ключ
+app.config['JWT_SECRET_KEY'] = 'super-secret'
 jwt = JWTManager(app)
 
-# База даних автомобілів у вигляді словника Python
 cars_db = {
     1: {"brand": "BMW", "year": 2018, "engine_volume": 2.0, "price": 50000},
     2: {"brand": "Audi", "year": 2020, "engine_volume": 1.8, "price": 45000},
@@ -42,19 +40,16 @@ users = {
 }
 
 
-# Функція для автентифікації користувача
 def authenticate(username, password):
     if username in users and users[username] == password:
         return username
 
 
-# Функція для ідентифікації користувача за ідентифікатором
 def identity(payload):
     username = payload['identity']
     return {"username": username}
 
 
-# Ендпоінт для отримання токена доступу
 @app.route('/auth', methods=['POST'])
 def login():
     auth = request.authorization
@@ -69,7 +64,6 @@ def login():
     return jsonify(access_token=access_token), 200
 
 
-# Ендпоінт для пошуку автомобілів
 @app.route('/cars', methods=['GET'])
 @jwt_required()
 def get_cars():
